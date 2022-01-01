@@ -8,7 +8,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
-	background-image: url(../img/galaxy.jpg);
+	background-image: url(../img/love.jpg);
 }
 .wrapper {
 	width: 80%;
@@ -16,7 +16,10 @@ body {
 	padding: 1em;
 	display: flex;
 	flex-flow: row nowrap;
-	background-color: #efb106;
+	background-image: url(../img/love.jpg);
+	color:black;
+	font-weight: bold;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 section {
 	flex-basis: 57%;
@@ -48,6 +51,8 @@ label {
 textarea {
 	height: 10rem;
 	padding: 1rem;
+	background-color: black;
+	color: whitesmoke;
 }
 select {
 	font-size: 1rem;
@@ -75,11 +80,16 @@ input:not([type="radio"]):not([type="checkbox"]) , textarea , select{
 	padding: 0 1rem;
 	border-radius: 10px;
 	border: none;
+	background-color: black;
+	color: whitesmoke;
 }
 h1 {
 	font-family: 'Lobster Two', cursive;
 }
-
+.dt {
+	display: inline;
+	width: 10rem;
+}
 
 
 
