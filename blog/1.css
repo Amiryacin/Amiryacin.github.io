@@ -3,6 +3,16 @@ html::after {
     display: table;
     clear: both;
 }
+html {
+    scroll-behavior: smooth; }
+    @media only screen and (max-width: 75em) {
+      html {
+        font-size: 59%; } }
+    @media only screen and (max-width: 56.25em) {
+      html {
+        font-size: 56%; } }
+    @media only screen and (min-width: 112.5em) {
+   }
 body {
     font-family: 'Open Sans', sans-serif;
 }
