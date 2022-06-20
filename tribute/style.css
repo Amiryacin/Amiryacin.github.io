@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:ital,wght@0,700;1,400&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+#main {
+    background-color: #EEEEEE;  
+    margin: 28px 6px;
+}
+.b, .d {
+    margin: 0;
+    padding: 0px 35% 0px 25%;
+}
+.b {
+    margin: 0;
+    padding: 10px 33% 0px 40%;
+}
+.b p {
+    margin-left: 10%;
+}
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+
+}
+ul {
+    font-size: 16px;
+    margin-left: 110px;
+}
+.d p {
+    margin-left: 150px;
+}
+li {
+    margin: 20px;
+}
+h3 {
+    font-size: 18.72px;
+    font-weight: 700;
+    font-style: normal;
+    margin: 50px 0 50px 250px;
+}
+.h3 {
+    font-size: 18.72px;
+    font-weight: 700;
+    font-style: normal; 
+    margin: 0;
+    padding: 0;
+}
+.c {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    margin: 15px 15px;
+    
+}
