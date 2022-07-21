@@ -79,7 +79,7 @@
             <div class="carousel-caption">
               <h1 class="brand-title display-2 animated fadeInDown">KARAMARA</h1>
               <h4 class="brand-description animated fadeInDown">RESTAURANT</h4>
-              <a class="mt-3 btn btn-light animated fadeInUp" href="pages/reservations.html" role="button">Réserver Maintenant</a>
+              <a class="mt-3 btn btn-light animated fadeInUp" href="#reserv" role="button">Réserver Maintenant</a>
             </div>
           </div>
           <div class="dark-overlay carousel-item">
@@ -88,9 +88,9 @@
               src="./media/ethpic/a/2a.jpeg"
               alt="Second slide">
             <div class="carousel-caption">
-              <h1 class="brand-title display-2 animated fadeInDown">GRECKO</h1>
+              <h1 class="brand-title display-2 animated fadeInDown">KARAMARA</h1>
               <h4 class="brand-description animated fadeInDown">RESTAURANT</h4>
-              <a class="mt-3 btn btn-light animated fadeInUp" href="pages/reservations.html" role="button">Réserver Maintenant</a>
+              <a class="mt-3 btn btn-light animated fadeInUp" href="#reserv" role="button">Réserver Maintenant</a>
             </div>
           </div>
           <div class="dark-overlay carousel-item">
@@ -100,9 +100,9 @@
               alt="Third slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1 class="brand-title display-2 animated fadeInDown">GRECKO</h1>
+                <h1 class="brand-title display-2 animated fadeInDown">KARAMARA</h1>
                 <h4 class="brand-description animated fadeInDown">RESTAURANT</h4>
-                <a class="mt-3 btn btn-light animated fadeInUp" href="pages/reservations.html" role="button">Réserver Maintenant</a>
+                <a class="mt-3 btn btn-light animated fadeInUp" href="#reserv" role="button">Réserver Maintenant</a>
               </div>
             </div>
           </div>
@@ -113,9 +113,9 @@
               alt="Fourth slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1 class="brand-title display-2 animated fadeInDown">GRECKO</h1>
+                <h1 class="brand-title display-2 animated fadeInDown">KARAMARA</h1>
                 <h4 class="brand-description animated fadeInDown">RESTAURANT</h4>
-                <a class="mt-3 btn btn-light animated fadeInUp" href="pages/reservations.html" role="button">Réserver Maintenant</a>
+                <a class="mt-3 btn btn-light animated fadeInUp" href="#reserv" role="button">Réserver Maintenant</a>
               </div>
             </div>
           </div>
@@ -437,8 +437,113 @@
         </a>
         <div class="row">
           <div class="col-md-3">
-            <h5 class="page-footer-title">Horaires D'Ouvertures</h5> 
-            <p class="mb-0"><em>Mardi - Vendredi</em> </br> 11am - 3am &amp; 7pm - 12pm</p> </br>
+            <h5 class="page-footer-title">Horaires D'Ouvertures</h5>
+            <div class="js" id="js">
+            <h6 class="text-success" id="ouvert"></h6>
+            <h6 class="text-danger d-none" id="ferme"></h6>
+            <script>
+                
+
+                localStorage.setItem("a", "OUVERT AUJOURD'HUI");
+                localStorage.setItem("b", "FERMÉ AUJOURD'HUI");
+                var ouvert = document.getElementById("ouvert");
+                var ferme = document.getElementById("ferme");
+                ouvert.innerHTML = localStorage.getItem("a");
+                ferme.innerHTML = localStorage.getItem("b");
+
+
+ 
+              (function() {
+
+              var mouseTime;
+              function mouseDow() { 
+                  mouseU();
+                  mouseTime = window.setTimeout(execMouseDow,3000); //set timeout to fire in 2 seconds when the user presses mouse button down
+              }
+
+              function mouseU() { 
+                  if (mouseTime) window.clearTimeout(mouseTime);  //cancel timer when mouse button is released
+
+              }
+
+              function execMouseDow() { 
+                localStorage.setItem("a", "OUVERT AUJOURD'HUI");
+                localStorage.setItem("b", "FERMÉ AUJOURD'HUI");
+                var ouvert = document.getElementById("ouvert");
+                var ferme = document.getElementById("ferme");
+                ouvert.innerHTML = localStorage.getItem("a");
+                ferme.innerHTML = localStorage.getItem("b");
+
+                if ((ouvert.classList.contains("d-none") !== true  &&  ferme.classList.contains("d-none") === true)) {
+                  ouvert.classList.add("d-none");
+                  ferme.classList.remove("d-none");
+                
+                }
+                else if (ouvert.classList.contains("d-none") === true  &&  ferme.classList.contains("d-none") !== true) {
+                  ouvert.classList.remove("d-none");
+                  ferme.classList.add("d-none");
+              }
+              }
+
+              var dive = document.getElementById("js");
+              dive.addEventListener("mousedown", mouseDow);
+              document.body.addEventListener("mouseup", mouseU);  //listen for mouse up event on body, not just the element you originally clicked on
+
+              /*(function() {
+
+              var mouseTimer;
+              function mouseDown() { 
+                  mouseUp();
+                  mouseTimer = window.setTimeout(execMouseDown,4000); //set timeout to fire in 2 seconds when the user presses mouse button down
+              }
+
+              function mouseUp() { 
+                  if (mouseTimer) window.clearTimeout(mouseTimer);  //cancel timer when mouse button is released
+
+              }
+
+              function execMouseDown() { 
+                localStorage.setItem("a", "OUVERT AUJOURD'HUI");
+                localStorage.setItem("b", "FERMÉ AUJOURD'HUI");
+                var ouvert = document.getElementById("ouvert");
+                var ferme = document.getElementById("ferme");
+                ouvert.innerHTML = localStorage.getItem("a");
+                ferme.innerHTML = localStorage.getItem("b");
+
+                if (ouvert.classList.contains("d-none") === true  &&  ferme.classList.contains("d-none") !== true) {
+                  ouvert.classList.remove("d-none");
+                  ferme.classList.add("d-none");
+                
+              }
+              }*/
+              chrome.storage.local.onChanged.addListener(console.log)
+              // Then somewhere else
+              chrome.storage.local.set({ foo: 'bar' })
+
+              }());
+              if (typeof(Storage) !== "undefined") {
+              // Store
+              localStorage.setItem("a", "OUVERT AUJOURD'HUI");
+              localStorage.setItem("b", "FERMÉ AUJOURD'HUI");
+              // Retrieve
+              document.getElementById("result").innerHTML = localStorage.getItem("a");
+              document.getElementById("result").innerHTML = localStorage.getItem("b");
+            } else {
+              document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+              /*(function() {
+                var ouvert = document.getElementById("ouvert");
+                var ferme = document.getElementById("ferme");
+
+                if (ouvert.classList.contains("d-none")) {
+                  ouvert.classList.remove("d-none");
+                }
+              })*/
+
+
+            </script>
+          </div> 
+            <p class="mb-0"><em>Mardi - Vendredi</em> </br> 11am - 3am &amp; 7pm - 12pm</p> 
 
             <p class="mb-0"><em>Samedi - Dimanche</em> </br> 7pm - 12pm</p>
 
@@ -469,7 +574,7 @@
             </p>
             <form id="newsletter-form">
               <label class="sr-only" for="formEmail">Email</label>
-              <input type="email" class="form-control form-control-sm rounded" id="formEmail" placeholder="nom   @exemple.com">
+              <input type="email" class="form-control form-control-sm rounded" id="formEmail" placeholder="nom@exemple.com">
               <button type="submit" class="btn btn-sm btn-outline-light btn-block mt-2">Subscribe</button>
             </form>
           </div>
